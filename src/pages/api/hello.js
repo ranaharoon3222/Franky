@@ -26,7 +26,7 @@ export default async function handler(req, res) {
       {
         method: 'POST',
         headers: {
-          Authorization: 'apikey 94899482e9cc5e4517220ce95e4b693f-us11',
+          Authorization: process.env.API_KEY,
         },
         body: req.body,
       }
