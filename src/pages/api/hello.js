@@ -1,5 +1,41 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
+import Cors from 'cors';
+const cors = Cors({
+  methods: ['POST', 'GET', 'HEAD'],
+});
+
+function runMiddleware(req, res, fn) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result) => {
+      if (result instanceof Error) {
+        return reject(result);
+      }
+
+      return resolve(result);
+    });
+  });
+}
+
+export default async function handler(req, res) {
+  await runMiddleware(req, res, cors);
+  if (req.method !== 'POST') return res.status(200).json({ name: 'Hi Franky' });
+  try {
+    const chimpRequest = await fetch(
+      'https://us11.api.mailchimp.com/3.0/lists/19e84be598/members',
+      {
+        method: 'POST',
+        headers: {
+          Authorization: 'apikey 94899482e9cc5e4517220ce95e4b693f-us11',
+        },
+        body: req.body,
+      }
+    );
+
+    const data = await chimpRequest.json();
+
+    res.status(200).json(data);
+  } catch (error) {
+    console.error(error);
+  }
 }
