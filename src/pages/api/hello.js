@@ -23,6 +23,10 @@ export default async function handler(req, res) {
   await runMiddleware(req, res, cors);
   if (req.method !== 'POST') return res.status(200).json({ name: 'Hi Franky' });
 
+  // const eventName = {
+  //   name: 'dogAdded',
+  // };
+
   const bodyData = JSON.parse(req?.body);
   const mg = bodyData.merge_fields;
 
@@ -55,17 +59,13 @@ export default async function handler(req, res) {
         }
       );
 
-      const eventName = {
-        name: 'dogAdded',
-      };
-
-      await fetch(eventUrl, {
-        method: 'POST',
-        headers: {
-          Authorization: process.env.API_KEY,
-        },
-        body: JSON.stringify(eventName),
-      });
+      // await fetch(eventUrl, {
+      //   method: 'POST',
+      //   headers: {
+      //     Authorization: process.env.API_KEY,
+      //   },
+      //   body: JSON.stringify(eventName),
+      // });
 
       const data = await chimpRequest.json();
       res.status(200).json(data);
@@ -93,17 +93,14 @@ export default async function handler(req, res) {
         },
         body: JSON.stringify(updatedSubs),
       });
-      const eventName = {
-        name: 'dogAdded',
-      };
 
-      await fetch(eventUrl, {
-        method: 'POST',
-        headers: {
-          Authorization: process.env.API_KEY,
-        },
-        body: JSON.stringify(eventName),
-      });
+      // await fetch(eventUrl, {
+      //   method: 'POST',
+      //   headers: {
+      //     Authorization: process.env.API_KEY,
+      //   },
+      //   body: JSON.stringify(eventName),
+      // });
 
       const data = await chimpRequest.json();
       res.status(200).json(data);
