@@ -59,15 +59,13 @@ export default async function handler(req, res) {
         name: 'dogAdded',
       };
 
-      setTimeout(async () => {
-        await fetch(eventUrl, {
-          method: 'POST',
-          headers: {
-            Authorization: process.env.API_KEY,
-          },
-          body: JSON.stringify(eventName),
-        });
-      }, 1000);
+      await fetch(eventUrl, {
+        method: 'POST',
+        headers: {
+          Authorization: process.env.API_KEY,
+        },
+        body: JSON.stringify(eventName),
+      });
 
       const data = await chimpRequest.json();
       res.status(200).json(data);
@@ -99,15 +97,13 @@ export default async function handler(req, res) {
         name: 'dogAdded',
       };
 
-      setTimeout(async () => {
-        await fetch(eventUrl, {
-          method: 'POST',
-          headers: {
-            Authorization: process.env.API_KEY,
-          },
-          body: JSON.stringify(eventName),
-        });
-      }, 1000);
+      await fetch(eventUrl, {
+        method: 'POST',
+        headers: {
+          Authorization: process.env.API_KEY,
+        },
+        body: JSON.stringify(eventName),
+      });
 
       const data = await chimpRequest.json();
       res.status(200).json(data);
