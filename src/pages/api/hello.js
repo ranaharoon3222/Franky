@@ -79,6 +79,8 @@ export default async function handler(req, res) {
         DOGAL: `${dupData.DOGAL} / ${mg.DOGAL}`,
         DESEXED: `${dupData.DESEXED} / ${mg.DESEXED}`,
         BODYSCORE: `${dupData.BODYSCORE} / ${mg.BODYSCORE}`,
+        DAILYALL: `${dupData.DAILYALL} / ${mg.DAILYALL}`,
+        MONTHLYALL: `${dupData.MONTHLYALL} / ${mg.MONTHLYALL}`,
         CART: `${dupData.CART} / ${mg.CART}`,
       };
 
