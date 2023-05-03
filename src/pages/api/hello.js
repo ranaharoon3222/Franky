@@ -83,6 +83,7 @@ export default async function handler(req, res) {
         MONTHLYALL: `${dupData?.MONTHLYALL} / ${mg?.MONTHLYALL}`,
         CART: `${dupData.CART} / ${mg.CART}`,
         IMAGE: `${dupData?.IMAGE}-------${mg.IMAGE}`,
+        IMAGE: `${dupData?.IMLINK} / ${mg.IMLINK}`,
       };
 
       const updatedSubs = {
