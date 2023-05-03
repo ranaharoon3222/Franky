@@ -23,8 +23,7 @@ export default async function handler(req, res) {
   await runMiddleware(req, res, cors);
   if (req.method !== 'POST') return res.status(200).json({ name: 'Hi Franky' });
 
-  // const bodyData = JSON.parse(req?.body);
-
+  const bodyData = JSON.parse(req?.body);
   const postImageUrl = `https://us11.api.mailchimp.com/3.0/file-manager/files`;
   try {
     const postImg = await fetch(postImageUrl, {
@@ -34,8 +33,8 @@ export default async function handler(req, res) {
         Authorization: process.env.API_KEY,
       },
       body: JSON.stringify({
-        name: req.body.name,
-        file_data: req.body.imgData,
+        name: bodyData.name,
+        file_data: bodyData.imgData,
       }),
     });
 
