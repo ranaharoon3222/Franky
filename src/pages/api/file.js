@@ -19,6 +19,14 @@ function runMiddleware(req, res, fn) {
   });
 }
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '4mb',
+    },
+  },
+};
+
 export default async function handler(req, res) {
   await runMiddleware(req, res, cors);
   if (req.method !== 'POST') return res.status(200).json({ name: 'Hi Franky' });
