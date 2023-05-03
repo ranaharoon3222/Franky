@@ -27,7 +27,7 @@ export default async function handler(req, res) {
 
   const postImageUrl = `https://us11.api.mailchimp.com/3.0/file-manager/files`;
   try {
-    await fetch(postImageUrl, {
+    const postImg = await fetch(postImageUrl, {
       method: 'POST',
       headers: {
         Authorization: process.env.API_KEY,
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       }),
     });
 
-    res.status(200).json({ done: 'sent' });
+    res.status(200).json(postImg);
   } catch (error) {
     console.error(error);
   }
