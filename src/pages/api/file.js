@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       }),
     });
 
-    res.status(200).json(postImg);
+    res.status(200).json(await postImg.json());
   } catch (error) {
     console.error(error);
   }
