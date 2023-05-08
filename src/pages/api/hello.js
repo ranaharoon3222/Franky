@@ -71,6 +71,7 @@ export default async function handler(req, res) {
       res.status(200).json(data);
     } else {
       const finalData = {
+        POSTALC: `${dupData.POSTALC} / ${mg.POSTALC}`,
         DOGNAME: `${dupData.DOGNAME} / ${mg.DOGNAME}`,
         BREED: `${dupData.BREED} / ${mg.BREED}`,
         WEIGHT: `${dupData.WEIGHT} / ${mg.WEIGHT}`,
