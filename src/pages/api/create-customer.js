@@ -41,7 +41,14 @@ export default async function handler(req, res) {
       password: bodyData.pass,
       password_confirmation: bodyData.pass,
       send_email_welcome: false,
-      note: JSON.stringify(bodyData.dogsData),
+      metafields: [
+        {
+          key: 'dog_data',
+          namespace: 'custom',
+          value: JSON.stringify(bodyData.dogsData),
+          value_type: 'json_string',
+        },
+      ],
     },
   };
 
