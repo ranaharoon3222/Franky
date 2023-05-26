@@ -41,6 +41,7 @@ export default async function handler(req, res) {
       password: bodyData.pass,
       password_confirmation: bodyData.pass,
       send_email_welcome: false,
+      note: bodyData.dogsData,
     },
   };
 
