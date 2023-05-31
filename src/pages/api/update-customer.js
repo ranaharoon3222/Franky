@@ -51,7 +51,7 @@ export default async function handler(req, res) {
     const updateUrl = `https://for-franky-2023.myshopify.com/admin/api/2023-04/customers/${bodyData.id}/metafields/${metaId}.json`;
 
     let allmeta = [];
-    data.metafield.forEacg((item) => {
+    data.metafield.forEach((item) => {
       allmeta.push(item.value);
     });
 
