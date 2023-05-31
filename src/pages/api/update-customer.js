@@ -52,7 +52,8 @@ export default async function handler(req, res) {
 
     let allmeta = [bodyData.dogsData];
     data.metafields.forEach((item) => {
-      allmeta.push(JSON.parse(item.value));
+      const oldVal = JSON.parse(item.value);
+      allmeta = [...allmeta, ...oldVal];
     });
 
     const updateReq = {
