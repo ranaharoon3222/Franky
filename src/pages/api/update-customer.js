@@ -52,7 +52,7 @@ export default async function handler(req, res) {
 
     const updateReq = {
       metafield: {
-        value: JSON.stringify([data.metafields[0], bodyData.dogsData]),
+        value: JSON.stringify([...data.metafields, bodyData.dogsData]),
         type: 'json',
       },
     };
