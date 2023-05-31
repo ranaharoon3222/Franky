@@ -52,7 +52,7 @@ export default async function handler(req, res) {
 
     let allmeta = [];
     data.metafields.forEach((item) => {
-      allmeta.push(item.value);
+      allmeta.push(JSON.parse(item.value));
     });
 
     const updateReq = {
