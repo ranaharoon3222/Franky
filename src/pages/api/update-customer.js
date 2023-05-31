@@ -47,6 +47,7 @@ export default async function handler(req, res) {
     const data = await customerResponse.json();
 
     const metaId = data.metafields[0].id;
+    console.log(metaId, bodyData.id);
 
     const updateUrl = `https://for-franky-2023.myshopify.com/admin/api/2023-04/customers/${bodyData.id}/metafields/${metaId}.json`;
 

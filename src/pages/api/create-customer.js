@@ -45,7 +45,7 @@ export default async function handler(req, res) {
         {
           key: 'dog_data',
           namespace: 'custom',
-          value: JSON.stringify(bodyData.dogsData),
+          value: JSON.stringify([bodyData.dogsData]),
           value_type: 'json_string',
         },
       ],
