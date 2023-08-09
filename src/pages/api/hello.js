@@ -70,6 +70,7 @@ export default async function handler(req, res) {
       const data = await chimpRequest.json();
       res.status(200).json(data);
     } else {
+      const numberOfDuplicates = parseInt(dupData?.NUMBER_OF_DUPLICATES) || 0;
       const finalData = {
         POSTALC: `${dupData.POSTALC} / ${mg.POSTALC}`,
         DOGNAME: `${dupData.DOGNAME} / ${mg.DOGNAME}`,
@@ -85,6 +86,7 @@ export default async function handler(req, res) {
         CART: `${dupData.CART} / ${mg.CART}`,
         IMAGE: `${mg.IMAGE}`,
         IMLINK: `${mg.IMLINK} / ${dupData?.IMLINK}`,
+        NUMBER_OF_DUPLICATES: numberOfDuplicates + 1,
       };
 
       const updatedSubs = {
