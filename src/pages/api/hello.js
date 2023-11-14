@@ -87,6 +87,7 @@ export default async function handler(req, res) {
         IMAGE: `${mg.IMAGE}`,
         IMLINK: `${mg.IMLINK} / ${dupData?.IMLINK}`,
         NUMBER_OF_DUPLICATES: numberOfDuplicates + 1,
+        FREQUENCY: `${dupData?.FREQUENCY} / ${mg?.FREQUENCY}`,
       };
 
       const updatedSubs = {
